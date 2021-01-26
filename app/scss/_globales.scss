@@ -1,0 +1,160 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Public Sans", sans-serif;
+  font-size: $font-med;
+  font-weight: 300;
+  color: $grayBlue;
+  line-height: 1.3;
+  overflow-x: hidden;
+}
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 0;
+  color: $darkBlue;
+  line-height: 1.2;
+  font-weight: 300;
+}
+// Text
+h1 {
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+  @include breakpoints-up(lg) {
+    font-size: $font-xl;
+  }
+}
+h2 {
+  font-size: 1.875rem;
+  margin-bottom: 1.5rem;
+  @include breakpoints-up(lg) {
+    font-size: 2.25rem;
+    margin-bottom: 2.25rem;
+  }
+}
+
+p {
+  line-height: 1.5;
+  font-size: $font-sm;
+  @include breakpoints-up(lg) {
+    font-size: $font-lg;
+  }
+}
+
+// flexbox
+.flex {
+  display: flex;
+  &-jc-between {
+    justify-content: space-between;
+  }
+  &-ai-center {
+    align-items: center;
+  }
+}
+.noscroll {
+  overflow: hidden;
+}
+
+//spacing
+.container {
+  max-width: 71.25rem; // 1140px
+  margin: 0 auto;
+  &-p-all {
+    padding-top: 4.375rem;
+    padding-right: 1.5rem;
+    padding-bottom: 4.375rem;
+    padding-left: 1.5rem;
+    @include breakpoints-up(lg) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+  &-px {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  &-py {
+    padding-top: 4.375rem;
+    padding-bottom: 4.375rem;
+    @include breakpoints-up(lg) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+  &-pt {
+    padding-top: 4.375rem;
+    @include breakpoints-up(lg) {
+      padding-top: 6rem;
+    }
+  }
+  &-pb {
+    padding-bottom: 4.375rem;
+    @include breakpoints-up(lg) {
+      padding-bottom: 6rem;
+    }
+  }
+  &-pl {
+    padding-left: 1.5rem;
+  }
+  &-pr {
+    padding-right: 1.5rem;
+  }
+}
+
+// Buttons
+button,
+.button {
+  position: relative;
+  padding: 0.875rem 2.1875rem;
+  background: linear-gradient(to right, $limeGreen, $brightCyan);
+  color: $white;
+  border-radius: 50px;
+  font-weight: 400;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  display: inline-block;
+  font-size: $font-sm;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.25);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+// Visibility
+.hide-for-mobile {
+  @include breakpoints-down(lg) {
+    display: none;
+  }
+}
+.hide-for-desktop {
+  @include breakpoints-up(lg) {
+    display: none;
+  }
+}
